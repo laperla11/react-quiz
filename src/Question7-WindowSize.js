@@ -28,6 +28,10 @@ export class WindowSize extends Component {
     window.addEventListener("resize", this.handleWindowResize);
   }
 
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.handleWindowResize);
+  }
+
   handleWindowResize = () => {
     console.log("Window was resized!", window.innerWidth);
     this.setState({ windowWidth: window.innerWidth });
